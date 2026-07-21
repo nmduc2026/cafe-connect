@@ -91,13 +91,18 @@ Thêm `config/app.php`: `'frontend_url' => env('FRONTEND_URL', 'http://localhost
 
 > **Ảnh PNG sinh on-the-fly, không lưu file.** QR là hàm thuần của token — lưu ra storage chỉ tạo thêm rác và rủi ro lệch khi đổi token. Nếu lo hiệu năng thì cache theo token; nhưng quán 20 bàn thì không cần.
 
-Cần cài thêm ext GD cho PNG — bổ sung vào `backend/Dockerfile`:
+PNG cần ext **imagick**, không phải gd — `Generator::getFormatter()` trả về
+`ImagickImageBackEnd('png')`. Ext `gd` chỉ để thỏa platform requirement của
+composer lúc cài package. Cả hai đã được cài sẵn ở
+[Phase 0](phase-00-setup.md#bước-4--docker-compose), không phải sửa Dockerfile ở
+phase này. Kiểm tra nhanh:
 
-```dockerfile
-RUN apk add --no-cache freetype-dev libjpeg-turbo-dev libpng-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd
+```bash
+docker compose exec app php -m | grep -E 'imagick|gd'
 ```
+
+> `format('svg')` thì thuần PHP, không cần ext nào. Nên nếu quên imagick, trang in
+> hàng loạt vẫn chạy bình thường và chỉ endpoint `qr.png` chết — dễ bỏ sót.
 
 ---
 

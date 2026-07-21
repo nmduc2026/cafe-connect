@@ -33,7 +33,7 @@ Ký hiệu: ⬜ chưa bắt đầu · 🟡 đang làm · ✅ xong (đã qua DoD)
 - [ ] Bước 1 — `.gitignore` gốc
 - [ ] Bước 2 — Khởi tạo Laravel 12 + cài package
 - [ ] Bước 3 — Cấu hình Postgres
-- [ ] Bước 4 — Docker Compose + Dockerfile
+- [ ] Bước 4 — Docker Compose + `docker/Dockerfile` + `.dockerignore`
 - [ ] Bước 5 — Endpoint `/api/health`
 - [ ] Bước 6 — CORS
 - [ ] Bước 7 — Khởi tạo Vue 3 + Vite + Tailwind

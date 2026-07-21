@@ -34,15 +34,15 @@ VITE_REVERB_PORT=8080
 VITE_REVERB_SCHEME=http
 ```
 
-Thêm service vào `docker-compose.yml`:
+Thêm service vào `backend/docker-compose.yml`:
 
 ```yaml
   reverb:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: docker/Dockerfile
     volumes:
-      - ./backend:/var/www/html
+      - .:/var/www/html
     ports:
       - "8080:8080"
     depends_on:
@@ -216,8 +216,8 @@ Nếu dùng queue thì thêm service worker vào compose:
 
 ```yaml
   queue:
-    build: { context: ./backend, dockerfile: Dockerfile }
-    volumes: [./backend:/var/www/html]
+    build: { context: ., dockerfile: docker/Dockerfile }
+    volumes: [.:/var/www/html]
     depends_on: [redis, db]
     command: php artisan queue:work --tries=3
 ```

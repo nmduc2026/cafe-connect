@@ -291,7 +291,7 @@ app = "cafe-connect-api"
 primary_region = "sin"          # Singapore, gần VN nhất
 
 [build]
-  dockerfile = "Dockerfile.prod"
+  dockerfile = "docker/Dockerfile.prod"
 
 [processes]
   app    = "php-fpm & nginx -g 'daemon off;'"
@@ -320,7 +320,7 @@ primary_region = "sin"          # Singapore, gần VN nhất
   cpus = 1
 ```
 
-`Dockerfile.prod` khác dev ở: `composer install --no-dev --optimize-autoloader`, chạy `php artisan config:cache route:cache view:cache`, và không mount volume.
+`docker/Dockerfile.prod` khác dev ở: `composer install --no-dev --optimize-autoloader`, chạy `php artisan config:cache route:cache view:cache`, và không mount volume.
 
 ```bash
 fly secrets set APP_KEY=... DB_HOST=... JWT_SECRET=... VNPAY_HASH_SECRET=...

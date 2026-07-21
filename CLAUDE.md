@@ -13,9 +13,10 @@ Sau mỗi bước lớn: cập nhật `docs/plans/PROGRESS.md` và commit.
 ## Lệnh
 
 ```bash
+cd backend
 docker compose exec app php artisan test           # test backend
 docker compose exec app ./vendor/bin/pint          # format PHP
-cd frontend && npm run lint && npm run type-check  # frontend
+cd ../frontend && npm run lint && npm run type-check # frontend
 ```
 
 ## Convention — Backend

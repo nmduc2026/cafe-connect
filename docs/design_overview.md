@@ -380,7 +380,10 @@ backend/
 ├── tests/
 │   ├── Feature/                    # test luồng API (đặt món, thanh toán…)
 │   └── Unit/                       # test service (snapshot giá, derive status…)
+├── docker/
+│   └── Dockerfile                  # image PHP cho app, reverb, queue
 ├── docker-compose.yml              # app, db, redis, reverb
+├── .dockerignore
 └── .env
 ```
 
