@@ -61,10 +61,9 @@ composer require simplesoftwareio/simple-qrcode
 composer require laravel/reverb
 ```
 
-Bật API routes (Laravel 11+ không tạo `routes/api.php` mặc định). **Không dùng
-`php artisan install:api`** — lệnh đó kéo theo Sanctum và migration
-`personal_access_tokens`, trong khi dự án này auth bằng JWT. Tự tạo
-`routes/api.php` rỗng rồi khai báo trong `bootstrap/app.php`:
+Bật API routes (Laravel 11+ không tạo `routes/api.php` mặc định). Tạo file rỗng
+`backend/routes/api.php` — nội dung sẽ điền ở Bước 5 — rồi khai báo trong
+`bootstrap/app.php`:
 
 ```php
 ->withRouting(
@@ -74,13 +73,20 @@ Bật API routes (Laravel 11+ không tạo `routes/api.php` mặc định). **Kh
 )
 ```
 
-Không khai báo `web:` vì backend là API thuần. Xóa luôn `routes/web.php`,
-`resources/`, `vite.config.js`, `package.json` của Laravel — frontend là dự án Vue
-riêng. (Phase 4 cần trang in Blade thì tạo lại `resources/views/` lúc đó;
-Phase 7 broadcasting sẽ thêm `->withBroadcasting()`.)
+Dọn phần frontend của Laravel — dự án này backend là API thuần:
 
-> `health: '/up'` vẫn hoạt động dù không có `web.php`, và `HandleCors` đã nằm sẵn
-> trong global middleware của Laravel 11+ nên CORS không cần đăng ký thêm.
+```bash
+rm -rf resources routes/web.php vite.config.js package.json
+```
+
+> **Không chạy `php artisan install:api`** dù tài liệu Laravel khuyên vậy: lệnh đó
+> kéo theo Sanctum và migration `personal_access_tokens`, còn ta auth bằng JWT.
+>
+> Không khai báo `web:` cũng không sao — `health: '/up'` vẫn được đăng ký, và
+> `HandleCors` nằm sẵn trong global middleware của Laravel 11+.
+>
+> Phase 4 cần trang in Blade thì tạo lại `resources/views/` lúc đó; Phase 7 thêm
+> `->withBroadcasting()`.
 
 ---
 
@@ -110,23 +116,19 @@ QUEUE_CONNECTION=redis
 FRONTEND_URL=http://localhost:5173
 ```
 
-Và sửa `config/app.php`: `'timezone' => env('APP_TIMEZONE', 'Asia/Ho_Chi_Minh'),`
+Sửa `config/app.php`:
 
-> `DB_USERNAME` phải **trùng `POSTGRES_USER`** trong `docker-compose.yml` ở Bước 4
-> (`cafe`), nếu không `/api/health` sẽ không bao giờ trả `db: ok`. Nếu đã lỡ `up`
-> với user khác thì phải `docker compose down -v` mới init lại được volume.
->
-> `APP_TIMEZONE` phải có giá trị thật, **không để rỗng** — `env('APP_TIMEZONE', ...)`
-> với dòng `APP_TIMEZONE=` trả về chuỗi rỗng chứ không rơi về default.
->
-> `SESSION_DRIVER` để nguyên mặc định `database`: backend không có route `web`,
-> `StartSession` không bao giờ chạy, auth bằng JWT trong header nên giá trị này
-> không ảnh hưởng gì.
+```php
+'timezone' => env('APP_TIMEZONE', 'Asia/Ho_Chi_Minh'),
+```
 
-Copy nguyên nội dung này sang `backend/.env.example` (giữ `APP_KEY` rỗng — người
-clone repo sẽ tự `php artisan key:generate`. **Không commit key thật.**)
+Copy nguyên nội dung `.env` sang `backend/.env.example`, giữ `APP_KEY` rỗng.
 
 > **Vì sao Postgres ngay từ đầu?** Production sẽ dùng Neon (Postgres). Dev bằng MySQL rồi deploy Postgres là công thức gặp lỗi lệch kiểu dữ liệu ở phút chót. Thống nhất một loại DB từ đầu.
+>
+> `DB_USERNAME` phải trùng `POSTGRES_USER` ở Bước 4. `APP_TIMEZONE` phải có giá trị,
+> để rỗng thì `env()` trả chuỗi rỗng chứ không rơi về default. `SESSION_DRIVER` giữ
+> mặc định `database` — không có route `web` nên nó không được dùng tới.
 
 ---
 
@@ -213,25 +215,16 @@ EXPOSE 8000
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 ```
 
-> **Vì sao cài sẵn gd/imagick/redis ngay từ Phase 0** dù mãi Phase 4 và Phase 7 mới
-> dùng: `composer install` kiểm tra platform requirement. `simplesoftwareio/simple-qrcode`
-> khai báo `"ext-gd"` trong `require`, thiếu là **build fail ngay**. Còn `imagick` thì
-> composer không ép (nằm ở `suggest`) nhưng runtime mới là chỗ cần —
-> `QrCode::format('png')` gọi `ImagickImageBackEnd`, không đụng gd. Tức là gd cho
-> qua cửa cài đặt, imagick mới thực sự vẽ được ảnh; thiếu nó thì build xanh mà tới
-> Phase 4 endpoint `qr.png` mới chết. `ext-redis` tương tự: `CACHE_STORE=redis` +
-> `REDIS_CLIENT=phpredis` mà thiếu ext thì request đầu tiên chạm cache đã `Class "Redis" not found`.
-
-> **Hai tầng `composer install`** để tận dụng cache layer Docker: tầng đầu chỉ copy
-> `composer.json`/`composer.lock` nên sửa code app không làm tải lại vendor.
-> `--no-scripts` ở tầng này là bắt buộc — chưa có file `artisan` thì
-> `post-autoload-dump` (`artisan package:discover`) sẽ lỗi. Tầng sau chạy lại đầy đủ
-> để dump autoload và discover package.
-
-> **Lưu ý về bind mount:** compose mount `.:/var/www/html`, tức `vendor/` trên host
-> **đè lên** `vendor/` đã build trong image. Nên ở dev luôn cài package **từ trong
-> container** — `docker compose exec app composer require ...` — chứ đừng chạy
-> composer trên máy host, tránh vendor bị resolve theo bộ extension của Windows.
+> **Cài sẵn cả gd lẫn imagick** dù đều cho QR: `simple-qrcode` khai báo `ext-gd` ở
+> `require` nên thiếu gd là composer fail lúc build; còn `QrCode::format('png')`
+> lại gọi `ImagickImageBackEnd` nên thiếu imagick thì build vẫn xanh mà tới Phase 4
+> endpoint `qr.png` mới chết. `ext-redis` cho `CACHE_STORE=redis` ở Bước 3.
+>
+> **Hai tầng `composer install`** để tận dụng cache layer: sửa code app không làm
+> tải lại vendor. `--no-scripts` ở tầng đầu là bắt buộc vì chưa có file `artisan`.
+>
+> Compose bind-mount `.:/var/www/html` nên `vendor/` host đè lên `vendor/` trong
+> image — về sau cài package phải chạy `docker compose exec app composer require ...`.
 
 Tạo `backend/.dockerignore` để build image nhanh hơn (không copy `vendor/`, cache, log…):
 
@@ -274,13 +267,14 @@ curl http://localhost:8000/up
 `backend/routes/api.php`:
 
 ```php
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health', fn () => response()->json([
     'data' => [
         'app' => config('app.name'),
-        'time' => now()->toIso8601String(),
-        'db' => \DB::connection()->getPdo() ? 'ok' : 'down',
+        'time' => now()->toDateTimeString(),
+        'db' => DB::connection()->getPdo() ? 'ok' : 'down',
     ],
     'message' => 'OK',
 ]));
@@ -310,58 +304,96 @@ curl http://localhost:8000/api/health
 
 ## Bước 7 — Khởi tạo frontend Vue 3
 
+Scaffold bằng CLI của shadcn-vue — một lệnh ra sẵn Vite + TS + Tailwind 4 + theme.
+Đặt tên project là `frontend`:
+
 ```bash
 cd d:/Work/Profile/cafe-connect
-npm create vite@latest frontend -- --template vue-ts
+npx shadcn-vue@latest init --preset a27HcWka --template vite --pointer
 cd frontend
-npm install
-npm install axios pinia vue-router
-npm install -D tailwindcss @tailwindcss/vite
+npm install axios pinia vue-router@4
+npm install -D @types/node
 ```
 
-`frontend/vite.config.ts`:
+Thêm `types` và `vite.config.ts` vào `frontend/tsconfig.json`:
+
+```jsonc
+{
+  "compilerOptions": {
+    // ...
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"]
+}
+```
+
+Thêm `server` vào `frontend/vite.config.ts`, giữ nguyên phần preset sinh ra:
 
 ```ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
-import path from 'node:path'
-
-export default defineConfig({
-  plugins: [vue(), tailwindcss()],
-  resolve: {
-    alias: { '@': path.resolve(__dirname, './src') },
-  },
   server: {
-    host: true,     // để điện thoại trong cùng LAN truy cập được — cần cho Phase 5
+    host: true, // để điện thoại trong cùng LAN truy cập được — cần cho Phase 5
     port: 5173,
   },
-})
 ```
 
-`frontend/src/style.css`:
+Thêm script vào `frontend/package.json`:
 
-```css
-@import "tailwindcss";
+```json
+"type-check": "vue-tsc --noEmit"
 ```
 
-`frontend/.env`:
+Tạo `frontend/.env` và `frontend/.env.example` cùng nội dung:
 
 ```dotenv
 VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
----
+Tạo `frontend/src/vite-env.d.ts`:
 
-## Bước 8 — shadcn-vue
+```ts
+/// <reference types="vite/client" />
 
-```bash
-npx shadcn-vue@latest init
+declare module '*.vue' {
+  import type { DefineComponent } from 'vue'
+
+  const component: DefineComponent<object, object, unknown>
+  export default component
+}
+
+interface ImportMetaEnv {
+  readonly VITE_API_BASE_URL: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
 ```
 
-Trả lời prompt: TypeScript = yes, base color = Slate, alias `@/components` và `@/lib/utils`.
+> Khai từng biến `VITE_*` để `import.meta.env` được gợi ý và bắt lỗi typo.
+>
+> Shim `*.vue` là để TS server của VS Code resolve được `import ... from '*.vue'`
+> trong file `.ts` — nó không đọc `.vue`, chỉ Volar và `vue-tsc` đọc được. Thiếu shim
+> thì `src/router/index.ts` đỏ hết dòng `import()` dù `npm run type-check` vẫn sạch.
 
-Thêm vài component nền để test:
+Thêm `dist` và `*.tsbuildinfo` vào `frontend/.gitignore`.
+
+```bash
+npm run type-check
+```
+
+**Checkpoint:** `type-check` chạy sạch.
+
+> Preset `a27HcWka` (style `reka-vega`, font Geist, base color neutral) đặt CSS ở
+> `src/assets/index.css` và sinh `tsconfig.json` phẳng một file — khác `npm create vite`,
+> mọi đường dẫn từ đây bám theo preset. Preset cũng không sinh `vite-env.d.ts` và
+> `vite.config.ts` của nó dùng `node:url` — nên phải tự thêm cả hai thứ trên,
+> nếu không TS báo lỗi ở `vite.config.ts` và `src/api/client.ts`.
+
+---
+
+## Bước 8 — Component shadcn-vue
+
+Preset đã cấu hình sẵn `components.json`, chỉ cần thêm component:
 
 ```bash
 npx shadcn-vue@latest add button card badge
@@ -479,7 +511,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { router } from './router'
 import App from './App.vue'
-import './style.css'
+import './assets/index.css'
 
 createApp(App).use(createPinia()).use(router).mount('#app')
 ```
@@ -497,7 +529,9 @@ cd backend
 docker compose up -d --build
 docker compose exec app php artisan key:generate
 docker compose exec app php artisan migrate --seed
-cd ../frontend && npm install && npm run dev
+cd ../frontend
+cp .env.example .env
+npm install && npm run dev
 ```
 
 ---
