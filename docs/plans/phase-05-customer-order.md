@@ -190,7 +190,7 @@ private function attachOptions(OrderItem $orderItem, MenuItem $menuItem, array $
 
 > **Nguyên tắc vàng — quay cảnh này trong video:** frontend đã validate rồi, nhưng backend **vẫn phải validate lại**. Frontend validate là để UX; backend validate là để đúng. Mở Postman gửi thẳng request bỏ qua UI để chứng minh backend chặn.
 
-`deriveOrderStatus` — theo đúng quy tắc ở [design_overview §5](../design_overview.md):
+`deriveOrderStatus` — theo đúng quy tắc ở [system_overview §5](../system_overview.md):
 
 ```php
 public function deriveOrderStatus(Order $order): OrderStatus

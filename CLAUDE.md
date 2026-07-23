@@ -1,7 +1,7 @@
 # cafe-connect
 
 Hệ thống gọi món qua QR cho quán cafe. Laravel 12 (API) + Vue 3 (SPA).
-Thiết kế: [docs/design_overview.md](docs/design_overview.md) · Kế hoạch: [docs/plans/](docs/plans/)
+Thiết kế: [docs/system_overview.md](docs/system_overview.md) · Design: [docs/design/](docs/design/) · Kế hoạch: [docs/plans/](docs/plans/)
 
 ## Quy trình làm việc
 

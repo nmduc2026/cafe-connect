@@ -1,6 +1,6 @@
 # cafe-connect — Kế hoạch triển khai theo Phase
 
-Tài liệu này chia nhỏ [design_overview.md](../design_overview.md) thành **10 phase** thực thi được.
+Tài liệu này chia nhỏ [system_overview.md](../system_overview.md) thành **10 phase** thực thi được.
 Mỗi phase là **một tập video** độc lập: có mục tiêu rõ, các bước bấm-là-chạy, và tiêu chí "xong" để quay cảnh demo cuối tập.
 
 ---

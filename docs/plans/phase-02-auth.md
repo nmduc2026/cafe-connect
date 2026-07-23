@@ -423,15 +423,30 @@ router.beforeEach(async (to) => {
     return { name: 'login', query: { redirect: to.fullPath } }
   }
   if (to.name === 'login' && auth.isAuthenticated) {
-    return '/admin'
+    return auth.landingRoute
   }
   if (to.meta.permission && !auth.can(to.meta.permission as string)) {
-    return '/admin'
+    return to.path === auth.landingRoute ? false : auth.landingRoute
   }
 })
 ```
 
 Route KDS `/kitchen` cũng đặt `meta: { requiresAuth: true, permission: 'order.update' }`.
+
+> **Đừng redirect cứng về `/admin`.** `/admin` redirect tiếp sang `/admin/menu` (cần `menu.manage`), mà role `staff` không có quyền đó → guard lại đá về `/admin` → **vòng lặp redirect vô hạn, staff không đăng nhập được**. Landing route phải là màn đầu tiên user *có quyền vào*:
+>
+> ```ts
+> // stores/auth.ts
+> const landingRoute = computed(() => {
+>   if (can('menu.manage')) return '/admin/menu/items'
+>   if (can('order.view'))  return '/admin/orders/live'
+>   return '/admin/profile'
+> })
+> ```
+>
+> Đây là hệ quả trực tiếp của quyết định "Staff dùng chung màn admin" ở `system_overview.md` §2 — admin và staff vào cùng `/admin` nhưng thấy hai thứ khác nhau. Xem `docs/design/06_staff_flow.md` §6.
+>
+> Cũng vì vậy route `/admin` **không** đặt `redirect: '/admin/menu'` tĩnh như ở Phase 0, mà `redirect: () => useAuthStore().landingRoute`.
 
 ---
 
@@ -439,12 +454,15 @@ Route KDS `/kitchen` cũng đặt `meta: { requiresAuth: true, permission: 'orde
 
 Sidebar + header có tên user và nút Đăng xuất. Menu sidebar render theo `auth.can(...)`:
 
-| Mục | Permission | Route |
-|---|---|---|
-| Quản lý menu | `menu.manage` | `/admin/menu` |
-| Quản lý bàn | `table.manage` | `/admin/tables` |
-| Đơn hàng | `order.view` | `/admin/orders` |
-| Báo cáo | `report.view` | `/admin/reports` |
+| Mục | Permission | Route | Staff thấy? |
+|---|---|---|---|
+| Quản lý menu | `menu.manage` | `/admin/menu/items` | ❌ |
+| Quản lý bàn | `table.manage` | `/admin/tables` | ❌ |
+| Đơn hàng | `order.view` | `/admin/orders/live` | ✅ |
+| Lịch sử đơn | `order.view` | `/admin/orders/history` | ✅ |
+| Báo cáo | `report.view` | `/admin/reports` | ❌ |
+
+Không có permission thì **ẩn hẳn** mục khỏi sidebar, không disable. Role `staff` vì vậy chỉ thấy 2 mục — đó chính là "màn Staff", không cần layout riêng.
 
 Các route con này chưa có view — tạo file placeholder, sẽ điền ở Phase 3, 4, 6, 9.
 
