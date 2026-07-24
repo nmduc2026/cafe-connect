@@ -9,7 +9,7 @@
 
 ## Bước 1 — `QrServiceInterface`
 
-Phase đầu tiên áp dụng pattern interface + implementation của [design_overview §8.2](../design_overview.md).
+Phase đầu tiên áp dụng pattern interface + implementation của [system_overview §8.2](../system_overview.md).
 
 `app/Services/Contracts/QrServiceInterface.php`:
 

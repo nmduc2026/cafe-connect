@@ -1,6 +1,6 @@
 # Phase 1 — Database schema, Model, Seeder
 
-> **Mục tiêu:** Toàn bộ ERD ở [design_overview.md §4](../design_overview.md) thành migration chạy được, kèm Model có quan hệ đầy đủ và seeder tạo dữ liệu demo đẹp.
+> **Mục tiêu:** Toàn bộ ERD ở [system_overview.md §4](../system_overview.md) thành migration chạy được, kèm Model có quan hệ đầy đủ và seeder tạo dữ liệu demo đẹp.
 > **Ước lượng:** 4–5h · **Demo cuối phase:** `php artisan migrate:fresh --seed` → mở DB thấy 6 danh mục, ~25 món, 8 bàn, và một phiên bàn mẫu có 2 đơn.
 
 ---
@@ -525,7 +525,7 @@ Test thứ hai này chính là bằng chứng partial unique index hoạt độn
 
 | Thời lượng | Nội dung |
 |---|---|
-| 0:00–2:00 | Chiếu **sơ đồ ERD** (mermaid trong design_overview). Đi qua từng bảng bằng lời, chưa code |
+| 0:00–2:00 | Chiếu **sơ đồ ERD** (mermaid trong system_overview §4). Đi qua từng bảng bằng lời, chưa code |
 | 2:00–5:00 | **Giải thích snapshot giá** — vẽ tay hoặc slide: hôm nay cà phê 25k, tháng sau lên 30k, hóa đơn cũ phải giữ 25k. Đây là phần "ăn điểm", nói kỹ |
 | 5:00–8:00 | Tạo Enums. Giải thích vì sao string chứ không phải native enum Postgres |
 | 8:00–18:00 | Viết migration. Tua nhanh phần lặp, **dừng lại kỹ ở 3 chỗ:** `decimal(12,2)` cho tiền, `qr_token` random chứ không dùng id, và partial unique index cho session |
