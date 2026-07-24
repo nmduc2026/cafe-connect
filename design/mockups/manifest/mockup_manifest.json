@@ -1,0 +1,974 @@
+﻿{
+    "project":  "cafe-connect",
+    "version":  "v01",
+    "mode":  "built-in image_gen",
+    "status":  "in_progress",
+    "destination":  "design/mockups",
+    "generated_at":  "2026-07-23",
+    "rules_source":  [
+                         "docs/design/01_design_system.md",
+                         "docs/design/09_prototype_production_plan.md",
+                         "docs/design/prompts/00_base_prompt.md",
+                         "docs/design/prompts/01_customer_prompts.md",
+                         "docs/design/prompts/04_kds_prompts.md",
+                         "docs/design/prompts/05_asset_prompts.md",
+                         "docs/design/prompts/02_admin_prompts.md"
+                     ],
+    "completed":  [
+                      {
+                          "id":  "B001",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/B001_cafe-connect-horizontal_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "B002",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/B002_cafe-connect-mark_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "H001",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/H001_customer-menu-hero_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "H002",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/H002_admin-login-cafe-counter_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "M101",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M101_coffee-black-iced_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M102",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M102_coffee-milk-iced_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M103",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M103_bac-xiu-iced_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M104",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M104_salted-coffee_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M201",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M201_peach-orange-lemongrass-tea_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M202",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M202_golden-lotus-tea_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M301",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M301_butter-croissant_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "M302",
+                          "type":  "asset",
+                          "surface":  "assets",
+                          "path":  "design/mockups/assets/M302_tiramisu_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C01",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C01_qr-entry_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C02",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C02_session-loading_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C03",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C03_menu-home_390x844_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C04",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C04_category-browse_390x844_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C05",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C05_product-detail_390x844_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C06",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C06_product-validation-error_390x844_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C07",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C07_added-to-cart_390x844_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C08",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C08_cart_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C09",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C09_order-review_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C10",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C10_order-submitting_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C11",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C11_order-success_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "C12",
+                          "type":  "screen",
+                          "surface":  "customer",
+                          "viewport":  "390x844",
+                          "path":  "design/mockups/customer/customer_C12_order-tracking_390x844_v01.png",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "K04",
+                          "type":  "screen",
+                          "surface":  "kds",
+                          "viewport":  "1440x1024",
+                          "path":  "design/mockups/kds/kds_K04_live-board_1440x1024_v01.png",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "C13",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C13_item-preparing_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C14",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C14_item-ready_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C15",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C15_item-served_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C16",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C16_add-more-items_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C17",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C17_staff-call-sheet_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C18",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C18_bill-request-confirm_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C19",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C19_payment-method_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C20",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C20_vnpay-redirect_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C21",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C21_payment-pending_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C22",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C22_payment-success_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "C23",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_C23_session-closed_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E01",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E01_empty-cart_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E02",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E02_invalid-qr_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E03",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E03_session-expired_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E04",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E04_item-unavailable_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E05",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E05_payment-failed_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "E06",
+                          "surface":  "customer",
+                          "path":  "design/mockups/customer/customer_E06_offline_390x844_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "390x844"
+                      },
+                      {
+                          "id":  "K01",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K01_login_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K02",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K02_audio-permission_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K03",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K03_loading-board_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K05",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K05_new-ticket-arrives_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K06",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K06_ticket-highlight-sound_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K07",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K07_start-item_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K08",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K08_item-preparing_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K09",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K09_mark-item-ready_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K10",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K10_ticket-ready_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K11",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K11_long-ticket-expanded_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K12",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K12_overdue-ticket_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K13",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K13_filter-focus-mode_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K14",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K14_sound-settings_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K15",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K15_undo-action_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K16",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K16_cancelled-item_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K17",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K17_multiple-device-conflict_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K20",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K20_reconnecting_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K21",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K21_offline-board_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K22",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K22_reconnected-sync_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K23",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K23_stale-data-conflict_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K30",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K30_empty-board_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K31",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K31_permission-denied_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K32",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K32_session-expired_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "K33",
+                          "surface":  "kds",
+                          "path":  "design/mockups/kds/kds_K33_not-found_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A01",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A01_login_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A02",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A02_login-loading_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A03",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A03_dashboard_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A10",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A10_category-list_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A11",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A11_create-category_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A12",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A12_edit-category_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A13",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A13_delete-category-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A14",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A14_category-empty-state_1440x1024_v01.png",
+                          "type":  "screen",
+                          "review":  "accepted_with_minor_notes",
+                          "viewport":  "1440x1024"
+                      },
+                      {
+                          "id":  "A20",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A20_menu-item-list_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A21",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A21_create-menu-item_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A22",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A22_edit-menu-item_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A23",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A23_delete-menu-item-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A24",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A24_availability-toggle_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A25",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A25_upload-image-state_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A26",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A26_option-group-editor_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A27",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A27_copy-option-group_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A28",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A28_menu-item-preview_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A30",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A30_table-list_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A31",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A31_create-table_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A32",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A32_edit-table_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A33",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A33_delete-table-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A34",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A34_qr-preview_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A35",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A35_generate-qr-loading_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A36",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A36_regenerate-qr-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A37",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A37_download-print-qr_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A38",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A38_table-permission-denied_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A40",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A40_live-orders_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A41",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A41_order-detail_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A42",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A42_session-detail_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A43",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A43_confirm-cash-payment_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A44",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A44_confirm-bank-transfer_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A45",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A45_close-session-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A46",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A46_order-history_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A47",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A47_order-filter-export_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A48",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A48_order-empty-state_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A50",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A50_reports-overview_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A51",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A51_revenue-detail_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A52",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A52_top-items_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A53",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A53_peak-hours_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A54",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A54_average-session-value_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A55",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A55_report-empty-state_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A60",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A60_staff-list_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A61",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A61_create-staff_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A62",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A62_edit-staff_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A63",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A63_change-role-permission_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A64",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A64_disable-staff_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A65",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A65_delete-staff_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A66",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A66_staff-permission-denied_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      },
+                      {
+                          "id":  "A70",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A70_notifications-drawer_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A71",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A71_profile_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A72",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A72_logout-confirm_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A73",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A73_session-expired_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A74",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A74_permission-denied_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted_with_minor_notes"
+                      },
+                      {
+                          "id":  "A75",
+                          "surface":  "admin",
+                          "path":  "design/mockups/admin/admin_A75_not-found_1440x1024_v01.png",
+                          "type":  "screen",
+                          "viewport":  "1440x1024",
+                          "review":  "accepted"
+                      }
+                  ],
+    "pending_summary":  {
+                            "customer":  "complete for C01-C23 and E01-E06",
+                            "admin":  "complete for A01-A03, A10-A14, A20-A28, A30-A38, A40-A48, A50-A55, A60-A66, A70-A75",
+                            "staff":  "S01-S45 prompt deliverables",
+                            "kds":  "complete for K01-K17, K20-K23, K30-K33",
+                            "assets":  "remaining standalone illustration and placeholder prompts from 05_asset_prompts.md"
+                        }
+}
